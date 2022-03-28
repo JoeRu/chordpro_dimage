@@ -10,4 +10,4 @@ RUN perl Makefile.PL && \
     make test  && \
     make install
 
-WORKDIR /root
+WORKDIR /data
