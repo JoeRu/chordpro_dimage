@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  chordpro_image:
+    image: jayar79/chordpro:master
+    volumes:
+      - ".:/data"
+      - "/etc/localtime:/etc/localtime:ro"
+      - "/etc/timezone:/etc/timezone:ro"
+#    restart: always
