@@ -9,11 +9,14 @@ Example usage:
     docker run --rm -v replace_with_your_path:/data jayar79/chordpro:master chordpro test.cho -o test.html
     docker run --rm -v replace_with_your_path:/data jayar79/chordpro:master lilypond --help
     docker run --rm -v replace_with_your_path:/data jayar79/chordpro:master abcm2ps
-   
+
+A not working example of a provided path with a config in a subdirectory. 
+    docker run --rm -v /home/johan/mysongbook:/data jayar79/chordpro:master chordpro --config=/data/config/myconfig.json /data/*.cho --output mysongbook.pdf
+
 
 bash (-it interactive terminal ) into the container:
 
-    docker run -v replace_with_your_path:/data --entrypoint /bin/zsh -it jayar79/chordpro:master
+    docker run -v replace_with_your_path:/data -it jayar79/chordpro:master /bin/zsh
 
 
 usage with docker-compose provided with the docker-compose.yml:
