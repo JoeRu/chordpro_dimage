@@ -6,9 +6,11 @@ Base workdir of the images is /data within the container. Mount your required pa
 Example usage:
 
     docker run --rm -v replace_with_your_path:/data jayar79/chordpro:master chordpro --help 
-    docker run --rm -v replace_with_your_path:/data jayar79/chordpro:master chordpro test.cho -o test.html
+    docker run --rm -v replace_with_your_path:/data jayar79/chordpro:master chordpro test.cho -o testhtml
     docker run --rm -v replace_with_your_path:/data jayar79/chordpro:master lilypond --help
     docker run --rm -v replace_with_your_path:/data jayar79/chordpro:master abcm2ps
+
+    docker run --rm -v replace_with_your_path:/data jayar79/chordpro:dev chordpro test.cho -o test.pdf
 
 A not working example of a provided path with a config in a subdirectory. 
     docker run --rm -v /home/johan/mysongbook:/data jayar79/chordpro:master chordpro --config=/data/config/myconfig.json /data/*.cho --output mysongbook.pdf
