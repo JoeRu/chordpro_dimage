@@ -1,9 +1,9 @@
 name: Build and Push Dev-Image 
 
 on:
-  push:
-    branches:
-      - 'main'
+  # push:
+  #   branches:
+  #     - 'main'
   schedule:
     # every night at 1:13h rebuild dev and latest
             #  ┌───────────── minute (0 - 59)
