@@ -22,6 +22,7 @@ jobs:
         name: Build and push DEV Image
         uses: docker/build-push-action@v3
         with:
-          context: ./dev
+#       context: ./dev
+          dockerfile: ./dev/Dockerfile
           push: true
           tags: jayar79/chordpro:dev
