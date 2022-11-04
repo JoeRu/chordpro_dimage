@@ -1,17 +1,14 @@
 name: Build and Push Dev-Image 
 
 on:
-  push:
-    branches:
-      - 'main'
   schedule:
-    # every night at 1:13h rebuild dev and latest
+    # every 5. of a month night at 0:47h rebuild dev and latest
             #  ┌───────────── minute (0 - 59)
             #  │ ┌───────────── hour (0 - 23)
             #  │ │ ┌───────────── day of the month (1 - 31)
             #  │ │ │ ┌───────────── month (1 - 12 or JAN-DEC)
             #  │ │ │ │ ┌───────────── day of the week (0 - 6 or SUN-SAT)
-    - cron:  '13 1 * * *'
+    - cron:  '0 47 5 * *'
 jobs:
   docker:
     runs-on: ubuntu-latest
@@ -26,9 +23,23 @@ jobs:
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_TOKEN }}
       -
+        name: Build and push latest Image
+        uses: docker/build-push-action@v3
+        with:
+          context: "{{defaultContext}}:latest"
+          push: true
+          tags: jayar79/chordpro:latest
+      -
         name: Build and push DEV Image
         uses: docker/build-push-action@v3
         with:
           context: "{{defaultContext}}:dev"
           push: true
           tags: jayar79/chordpro:dev
+      -
+        name: Build and push MASTER Image
+        uses: docker/build-push-action@v3
+        with:
+          context: "{{defaultContext}}:master"
+          push: true
+          tags: jayar79/chordpro:master          
