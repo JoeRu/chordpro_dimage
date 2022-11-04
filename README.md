@@ -46,8 +46,7 @@ Lilypond and abcm2ps are included as well.
 
 ## dev
 
-`dev` image should contain the latest development of chordpro. As is did not have a PRO Account in docker hub. This may tend to be outdated a bit.
-Lilypond and abcm2ps are included as well.
+`dev` image should contain the latest development of chordpro. As is did not have a PRO Account in docker hub. Rebuild is scheduled in Actions on a nightly base.
 
 ## latest
 
