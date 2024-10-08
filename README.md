@@ -23,8 +23,6 @@ bash (-it interactive terminal ) into the container:
 
 usage with docker-compose provided with the docker-compose.yml:
 
-    version: '3'
-
     services:
     chordpro_image:
         image: jayar79/chordpro:master
@@ -34,9 +32,9 @@ usage with docker-compose provided with the docker-compose.yml:
         - "/etc/timezone:/etc/timezone:ro"
 
 
-    docker-compose run --rm chordpro_image chordpro --help  
-    docker-compose run --rm chordpro_image lilypond --help
-    docker-compose run --rm chordpro_image abcm2ps
+    docker compose run --rm chordpro_image chordpro --help  
+    docker compose run --rm chordpro_image lilypond --help
+    docker compose run --rm chordpro_image abcm2ps
 
 ## master
 
