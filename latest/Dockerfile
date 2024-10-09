@@ -13,6 +13,8 @@ RUN ./configure && \
     make && \
     make install
 WORKDIR /
+RUN rm -Rf /root/abcm2ps-8.14.15 && rm -f /root/abcm2ps.tar.gz
+
 
 #Chordpro dependencys
 RUN cpanm install App::Packager
