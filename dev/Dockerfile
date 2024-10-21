@@ -1,4 +1,4 @@
-FROM jayar79/chordpro:latest
+FROM jayar79/chordpro:dev_container
 
 WORKDIR /tmp
 RUN git clone -b dev https://github.com/ChordPro/chordpro.git

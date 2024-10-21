@@ -5,27 +5,27 @@ Base workdir of the images is /data within the container. Mount your required pa
 
 Example usage:
 
-    docker run --rm -v replace_with_your_path:/data jayar79/chordpro:master chordpro --help 
-    docker run --rm -v replace_with_your_path:/data jayar79/chordpro:master chordpro test.cho -o testhtml
-    docker run --rm -v replace_with_your_path:/data jayar79/chordpro:master lilypond --help
-    docker run --rm -v replace_with_your_path:/data jayar79/chordpro:master abcm2ps
+    docker run --rm -v replace_with_your_path:/data jayar79/chordpro:latest chordpro --help 
+    docker run --rm -v replace_with_your_path:/data jayar79/chordpro:latest chordpro test.cho -o testhtml
+    docker run --rm -v replace_with_your_path:/data jayar79/chordpro:latest lilypond --help
+    docker run --rm -v replace_with_your_path:/data jayar79/chordpro:latest abcm2ps
 
     docker run --rm -v replace_with_your_path:/data jayar79/chordpro:dev chordpro test.cho -o test.pdf
 
 A not working example of a provided path with a config in a subdirectory. 
-    docker run --rm -v /home/johan/mysongbook:/data jayar79/chordpro:master chordpro --config=/data/config/myconfig.json /data/*.cho --output mysongbook.pdf
+    docker run --rm -v /home/johan/mysongbook:/data jayar79/chordpro:latest chordpro --config=/data/config/myconfig.json /data/*.cho --output mysongbook.pdf
 
 
 bash (-it interactive terminal ) into the container:
 
-    docker run -v replace_with_your_path:/data -it jayar79/chordpro:master /bin/zsh
+    docker run -v replace_with_your_path:/data -it jayar79/chordpro:latest /bin/zsh
 
 
 usage with docker-compose provided with the docker-compose.yml:
 
     services:
     chordpro_image:
-        image: jayar79/chordpro:master
+        image: jayar79/chordpro:latest
         volumes:
         - ".:/data"
         - "/etc/localtime:/etc/localtime:ro"
@@ -36,9 +36,9 @@ usage with docker-compose provided with the docker-compose.yml:
     docker compose run --rm chordpro_image lilypond --help
     docker compose run --rm chordpro_image abcm2ps
 
-## master
+## latest
 
-`master` image contains the master-branch of [chordpro](https://github.com/ChordPro/chordpro).
+`latest` image contains the latest-branch of [chordpro](https://github.com/ChordPro/chordpro).
 This image should be used in a productive environment.
 Lilypond and abcm2ps are included as well.
 
@@ -48,5 +48,5 @@ Lilypond and abcm2ps are included as well.
 
 ## latest
 
-`latest`-tag just contains the prerequisites for using Chordpro and develop within - mainly intended to use with [VS Code and this repo-Image docker-build-image](https://github.com/JoeRu/chordpro_dev_env).
+`dev_container`-tag just contains the prerequisites for using Chordpro and develop within - mainly intended to use with [VS Code and this repo-Image docker-build-image](https://github.com/JoeRu/chordpro_dev_env).
 
