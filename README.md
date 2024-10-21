@@ -46,7 +46,7 @@ Lilypond and abcm2ps are included as well.
 
 `dev` image should contain the latest development of chordpro. As is did not have a PRO Account in docker hub. Rebuild is scheduled in Actions on a nightly base.
 
-## latest
+## dev_container
 
 `dev_container`-tag just contains the prerequisites for using Chordpro and develop within - mainly intended to use with [VS Code and this repo-Image docker-build-image](https://github.com/JoeRu/chordpro_dev_env).
 
