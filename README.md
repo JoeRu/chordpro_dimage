@@ -40,7 +40,7 @@ usage with docker-compose provided with the docker-compose.yml:
 
 `latest` image contains the latest-branch of [chordpro](https://github.com/ChordPro/chordpro).
 This image should be used in a productive environment.
-Lilypond and abcm2ps are included as well.
+Lilypond, Latex-Module and abcm2ps are included as well.
 
 ## dev
 
