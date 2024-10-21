@@ -28,9 +28,10 @@ RUN cpanm install Template
 RUN cpanm install LaTeX::Encode
 
 #    https://github.com/richterger/Perl-LanguageServer
-RUN apt install libanyevent-perl libclass-refresh-perl libcompiler-lexer-perl \
-libdata-dump-perl libio-aio-perl libjson-perl libmoose-perl libpadwalker-perl \
-libscalar-list-utils-perl libcoro-perl
+RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+    && apt-get -y install --no-install-recommends libanyevent-perl libclass-refresh-perl libcompiler-lexer-perl \
+    libdata-dump-perl libio-aio-perl libjson-perl libmoose-perl libpadwalker-perl \
+    libscalar-list-utils-perl libcoro-perl    
 
 #VS Code
 RUN cpanm install Perl::LanguageServer 

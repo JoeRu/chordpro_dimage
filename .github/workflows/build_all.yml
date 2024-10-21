@@ -23,12 +23,12 @@ jobs:
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_TOKEN }}
       -
-        name: Build and push latest Image
+        name: Build and push dev_container Image
         uses: docker/build-push-action@v3
         with:
-          context: "{{defaultContext}}:latest"
+          context: "{{defaultContext}}:dev_container"
           push: true
-          tags: jayar79/chordpro:latest
+          tags: jayar79/chordpro:dev_container
       -
         name: Build and push DEV Image
         uses: docker/build-push-action@v3
@@ -37,9 +37,9 @@ jobs:
           push: true
           tags: jayar79/chordpro:dev
       -
-        name: Build and push MASTER Image
+        name: Build and push latest Image
         uses: docker/build-push-action@v3
         with:
-          context: "{{defaultContext}}:master"
+          context: "{{defaultContext}}:latest"
           push: true
-          tags: jayar79/chordpro:master          
+          tags: jayar79/chordpro:latest          
