@@ -19,6 +19,8 @@ RUN rm -Rf /root/abcm2ps-8.14.15 && rm -f /root/abcm2ps.tar.gz
 #Chordpro dependencys
 RUN cpanm install App::Packager
 RUN cpanm install File::HomeDir
+# prerequisit to loadlines with errors
+RUN cpanm install -f Test::Warnings
 RUN cpanm install File::LoadLines
 RUN cpanm install Image::Info
 RUN cpanm install PDF::API2
