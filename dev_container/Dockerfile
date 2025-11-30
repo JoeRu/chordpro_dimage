@@ -35,5 +35,13 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     libdata-dump-perl libio-aio-perl libjson-perl libmoose-perl libpadwalker-perl \
     libscalar-list-utils-perl libcoro-perl    
 
+# Create vscode user with sudo privileges
+RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+    && apt-get -y install --no-install-recommends sudo \
+    && groupadd --gid 1000 vscode \
+    && useradd --uid 1000 --gid 1000 -m -s /bin/bash vscode \
+    && echo vscode ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/vscode \
+    && chmod 0440 /etc/sudoers.d/vscode
+
 #VS Code
 RUN cpanm install Perl::LanguageServer 
