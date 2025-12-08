@@ -76,6 +76,7 @@ RUN cpanm --notest \
     Object::Pad \
     Data::Printer \
     ExtUtils::XSpp \
+    JSON::Relaxed \
     Perl::LanguageServer
 
 # Install Alien::wxWidgets separately as it requires a specific version
