@@ -1,5 +1,6 @@
 FROM jayar79/chordpro:dev_container
 
+RUN rm -Rf /tmp && mkdir /tmp
 WORKDIR /tmp
 RUN git clone -b dev https://github.com/ChordPro/chordpro.git
 
@@ -10,5 +11,6 @@ RUN perl Makefile.PL && \
     make test  && \
     make install
 
+RUN rm -Rf /tmp
 WORKDIR /data
 # ENTRYPOINT chordpro
