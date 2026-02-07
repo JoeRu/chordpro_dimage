@@ -13,3 +13,5 @@ docker buildx build --push -t jayar79/chordpro:dev ./dev
 #docker tag chordpro:latest jayar79/chordpro:latest
 #docker push jayar79/chordpro:latest
 docker buildx build --push -t jayar79/chordpro:latest ./latest
+
+docker buildx build --push -t jayar79/chordpro:html5 ./html5
