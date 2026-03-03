@@ -43,6 +43,7 @@ RUN apt-get update \
         libjson-pp-perl \
         libjson-xs-perl \
         libmodule-pluggable-perl \
+        libxml2-utils \
     && sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen \
     && locale-gen en_US.UTF-8 \
     && apt-get clean \
@@ -76,8 +77,7 @@ RUN cpanm --notest \
     Object::Pad \
     Data::Printer \
     ExtUtils::XSpp \
-    JSON::Relaxed \
-    Perl::LanguageServer
+    JSON::Relaxed
 
 # Install Alien::wxWidgets separately as it requires a specific version
 RUN cpanm --notest https://github.com/sciurius/perl-Alien-wxWidgets/releases/download/R0.71/Alien-wxWidgets-${AWV}.tar.gz
@@ -100,6 +100,8 @@ RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master
     && echo 'export LANG=en_US.UTF-8' >> /home/vscode/.zshrc \
     && echo 'export LANGUAGE=en_US:en' >> /home/vscode/.zshrc \
     && echo 'export LC_ALL=en_US.UTF-8' >> /home/vscode/.zshrc
+
+RUN curl -fsSL https://claude.ai/install.sh | bash
 
 USER root
 WORKDIR /workspaces 

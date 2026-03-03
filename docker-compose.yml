@@ -1,10 +1,55 @@
 version: '3'
 
 services:
-  chordpro_image:
-    image: jayar79/chordpro:master
+
+#docker buildx build --push -t jayar79/chordpro:dev_container ./dev_container
+  chordpro_dev_container:
+    build:
+      context: ./dev_container
+      dockerfile: Dockerfile
+      tags:
+        - jayar79/chordpro:dev_container
+    image: jayar79/chordpro:dev_container
+    volumes:
+      - ".:/data"
+      - "/etc/localtime:/etc/localtime:ro"
+      - "/etc/timezone:/etc/timezone:ro"
+# docker buildx build --push -t jayar79/chordpro:dev ./dev
+  chordpro_dev:
+    build:
+      context: ./dev
+      dockerfile: Dockerfile
+      tags:
+        - jayar79/chordpro:dev
+    image: jayar79/chordpro:dev
+    volumes:
+      - ".:/data"
+      - "/etc/localtime:/etc/localtime:ro"
+      - "/etc/timezone:/etc/timezone:ro"
+
+#docker buildx build --push -t jayar79/chordpro:latest ./latest
+  chordpro_latest:
+    build:
+      context: ./latest
+      dockerfile: Dockerfile
+      tags:
+        - jayar79/chordpro:latest
+    image: jayar79/chordpro:latest
     volumes:
       - ".:/data"
       - "/etc/localtime:/etc/localtime:ro"
       - "/etc/timezone:/etc/timezone:ro"
 #    restart: always
+
+#docker buildx build --push -t jayar79/chordpro:html5 ./html5
+  chordpro_html5:
+    build:
+      context: ./html5
+      dockerfile: Dockerfile
+      tags:
+        - jayar79/chordpro:html5
+    image: jayar79/chordpro:html5
+    volumes:
+      - ".:/data"
+      - "/etc/localtime:/etc/localtime:ro"
+      - "/etc/timezone:/etc/timezone:ro"
